@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ProductView";
+}
+@using CoffeeShop.Models
+<h2>CustomersView</h2>
+
+<a href="/Home/NewCustomerForm">Add New Customer</a>
+<!--
+<form action="/Home/ListCustomersByCountry" method="get">
+    <h3>Country</h3>
+    <select name="Country">
+        foreach (var Country in ViewBag.CountryList)
+        {
+            <option value="Country">Country</option>
+        }
+    </select>
+    <input type="submit" value="Search by Country" />
+</form>
+    -->
+<br />
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Product Quantity</th>
+        <th>Product Price</th>
+    </tr>
+    @foreach (var CustomerRecord in ViewBag.CustomerList)
+    {
+        <tr>
+            <td>
+                @CustomerRecord.ItemName
+            </td>
+            <td>
+                @CustomerRecord.ItemDesc
+            </td>
+            <td>
+                @CustomerRecord.ItemQty
+            </td>
+            <td>
+                $@CustomerRecord.ItemPrice
+            </td>
+            <!--
+            <td><a href="/Home/DeleteCustomer?CustomerID=CustomerRecord.CustomerID" onclick="return confirm('Are you sure?')">Delete</a></td>
+            <td><a href="/Home/UpdateCustomer?CustomerID=CustomerRecord.CustomerID">Update</a></td>
+                -->
+        </tr>
+    }
+
+</table>

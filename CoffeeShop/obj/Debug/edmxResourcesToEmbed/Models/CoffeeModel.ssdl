@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoffeeAppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CoffeeAppDB.dbo.Items' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ItemName" />
+      <PropertyRef Name="ItemDesc" />
+      <PropertyRef Name="ItemQty" />
+      <PropertyRef Name="ItemPrice" />
+    </Key>
+    <Property Name="ItemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemDesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemQty" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemPrice" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CoffeeAppDB.dbo.Products' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Products">
+          <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemQty" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemPrice" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CoffeeAppDB.dbo.User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="PhoneNum" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="FirstName" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="PhoneNum" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CoffeeAppDBModelStoreContainer">
+    <EntitySet Name="Items" EntityType="Self.Items" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Items].[ItemName] AS [ItemName], 
+    [Items].[ItemDesc] AS [ItemDesc], 
+    [Items].[ItemQty] AS [ItemQty], 
+    [Items].[ItemPrice] AS [ItemPrice]
+    FROM [dbo].[Items] AS [Items]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [User].[FirstName] AS [FirstName], 
+    [User].[LastName] AS [LastName], 
+    [User].[Email] AS [Email], 
+    [User].[PhoneNum] AS [PhoneNum], 
+    [User].[Password] AS [Password]
+    FROM [dbo].[User] AS [User]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
